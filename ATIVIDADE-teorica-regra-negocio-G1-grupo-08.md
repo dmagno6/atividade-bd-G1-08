@@ -31,8 +31,29 @@ Posição fundamentada do grupo e condições em que cada abordagem se aplica.
 
 ## 2. Exemplos e Casos
 
-Exemplo em PostgreSQL (regra no BD) e exemplo de validação na aplicação
-(pseudocódigo ou código). Um caso real: sistema de vendas, clínica ou biblioteca.
+Regra no SQL:
+
+- Regra de Negócio: O estoque de um produto nunca pode ser negativo (>=0) e o preço deve ser maior que zero (>0).
+  
+  CREATE TABLE produtos (
+      id SERIAL PRIMARY KEY,
+      nome VARCHAR(100) NOT NULL,
+      preco NUMERIC(10, 2) NOT NULL,
+      estoque INT NOT NULL,
+      CONSTRAINT ver_preco_positivo CHECK (preco > 0),
+      CONSTRAINT ver_estoque_nao_negativo CHECK (estoque >= 0)
+      );
+      
+Exemplo da Validação em Código (Python):
+
+  def registrar_venda(produto, quantidade):
+    if quantidade <= 0:
+        return "Quantidade inválida."
+    if produto.estoque < quantidade:
+        return "Estoque insuficiente."
+    produto.estoque -= quantidade
+    salvar_no_banco(produto)
+    return "Venda concluída."
 
 ## 3. Referências
 
