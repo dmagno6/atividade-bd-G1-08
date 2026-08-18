@@ -7,7 +7,9 @@
 
 ## Resumo Executivo
 
-Breve descrição do tema e da posição adotada pelo grupo.
+  Este trabalho analisa as estratégias de implementação de regras de negócio em sistemas computacionais, comparando a validação aplicada na camada de Banco de Dados com a executada na camada da Aplicação. O estudo avalia os impactos de cada abordagem em termos de consistência, segurança, desempenho, manutenção e experiência do usuário.
+
+  Por meio de um estudo de caso aplicado a um sistema de vendas, com foco específico no controle de estoque e preços, são demonstrados exemplos práticos utilizando restrições no PostgreSQL e lógica condicional em Python. Conclui-se que a abordagem híbrida é a mais eficiente, pois a aplicação atua como primeira barreira para prover respostas amigáveis e fluxos dinâmicos ao usuário, enquanto o banco de dados serve como a camada final e mandatória para assegurar a integridade estrutural e a consistência dos dados.
 
 ## 1. Desenvolvimento Teórico
 
