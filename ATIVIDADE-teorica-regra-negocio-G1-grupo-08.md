@@ -130,6 +130,8 @@ POSTGRESQL GLOBAL DEVELOPMENT GROUP. 5.5. Constraints. Disponível em: https://w
 
 POSTGRESQL GLOBAL DEVELOPMENT GROUP. Chapter 5. Data Definition. Disponível em: https://www.postgresql.org/docs/current/ddl.html. Acesso em: 15 ago. 2026.
 
+FOWLER, Martin. Presentation Domain Data Layering. Disponível em: https://martinfowler.com/bliki/PresentationDomainDataLayering.html. Acesso em: 16 ago. 2026.
+
 ## 4. Conclusões
 
 Aprendizados, reflexões e principais pontos observados pelo grupo.
