@@ -42,7 +42,39 @@ A principal vantagem de colocar regras de integridade no banco é que elas são 
 Por outro lado, utilizar excessivamente lógica complexa no banco pode dificultar a manutenção e aumentar a dependência de um determinado sistema gerenciador de banco de dados. Regras de negócio que mudam frequentemente ou que possuem muitos comportamentos e condições também podem ser mais difíceis de compreender e testar quando concentradas em triggers ou procedimentos armazenados.
 
 ### 1.3 Regras na aplicação
-Validação de entradas, camadas de serviço, frameworks — vantagens e limitações.
+Geralmente na aplicação, as regras de negócio ficam nas camadas responsáveis pela lógica do sistema, principalmente a camada de serviço. Antes dos dados irem para o banco, a aplicação pode fazer validações para verificar se o usuário passou informações válidas.
+
+Por exemplo, para cadastrar um cliente, pode verificar o nome, CPF e a idade:
+```
+def cadastrar_cliente(cliente):
+    if cliente["nome"] == "":
+        return "Nome é obrigatório"
+
+    if not cpf_valido(cliente["cpf"]):
+        return "CPF inválido"
+
+    if cliente["idade"] < 18:
+        return "Cliente deve possuir pelo menos 18 anos"
+
+    salvar_cliente(cliente)
+    return "Cliente cadastrado com sucesso"
+```
+Em uma camada de serviço pode-se controlar as regras como cálculos de descontos, condições de frete, aprovação de pedidos e comportamentos diferentes de acordo com o tipo de cliente.
+
+Frameworks como Spring Boot, Django, Laravel e ASP.NET Core, podem ajudar na validação dos dados, execução da lógica de negócio e na organização das camadas, facilitando o desenvolvimento e manutenção das regras na aplicação.
+
+Vantagens:
+- Flexibilidade: Facilita a implementação de regras complexas,  condições, cálculos e diferentes fluxos.
+- Melhor experiência para o usuário: A aplicação valida os dados antes de mandá-los para o banco e apresenta claras mensagens de erro.
+- Facilidade para alterações: A volatilidade de regras, como campanhas comerciais e descontos, podem ser alterados no código sem precisar alterar a estrutura do banco diretamente.
+
+Desvantagens:
+- Risco de inconsistência: Outra aplicação que acessar o mesmo banco pode não fazer a mesma validação.
+- Problemas de concorrência: Diferentes aplicações podem mudar os mesmos dados ao mesmo tempo.
+- Dependência da aplicação: Alterações feitas diretamente no banco podem ignorar as regras que já existem somente no código.
+
+Desse modo, a aplicação é mais apropriada para regras atreladas aos comportamentos, fluxos, cálculos e validações, porém, ela não deve ser a única proteção para regras fundamentais de integridade dos dados.
+
 
 ### 1.4 Comparativo BD x Aplicação
 Tabela comparativa: consistência, segurança, performance, manutenção,
