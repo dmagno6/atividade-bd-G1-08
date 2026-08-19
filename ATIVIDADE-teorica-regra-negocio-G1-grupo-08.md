@@ -77,8 +77,14 @@ Desse modo, a aplicação é mais apropriada para regras atreladas aos comportam
 
 
 ### 1.4 Comparativo BD x Aplicação
-Tabela comparativa: consistência, segurança, performance, manutenção,
-portabilidade, controle central da regra.
+| Critério | Banco de Dados | Aplicação |
+|---|---|---|
+| Consistência | Assegura a integridade dos dados. | Vai depender das regras aplicadas no código. |
+| Segurança | Pode impedir dados inválidos. | Pode validar dados antes mesmo de seguirem para o banco. |
+| Performance | Eficiente para constraints simples. | Operações desnecessárias no banco podem ser evitadas. |
+| Manutenção | Simples para constraints, por outro lado, pode ser complexa com triggers. | Costuma ser mais fácil para regras complexas. |
+| Portabilidade | Pode variar conforme o SGBD utilizado. | Pode ser mais independente do banco. |
+| Controle da regra | Deixa regras centralizadas para aplicações diferentes. | Entre aplicações podem haver diferentes regras. | 
 
 ### 1.5 Análise crítica: qual a melhor opção?
 Posição fundamentada do grupo e condições em que cada abordagem se aplica.
