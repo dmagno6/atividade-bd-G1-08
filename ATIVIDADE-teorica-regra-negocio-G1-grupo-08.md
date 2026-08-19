@@ -22,11 +22,17 @@ Assim, nem toda regra de negócio precisa estar exclusivamente no banco ou na ap
 O banco de dados possui mecanismos próprios para garantir regras relacionadas à integridade e consistência dos dados. No PostgreSQL, os principais são:
 
 `CHECK`: define uma condição que os valores devem atender. Por exemplo, impedir que a idade de um cliente seja menor que zero.
+
 `NOT NULL`: impede que uma coluna obrigatória receba valor nulo.
+
 `UNIQUE`: garante que determinado valor, ou combinação de valores, não se repita. Pode ser utilizado para garantir que o CPF de cada cliente seja único.
+
 `FOREIGN KEY`: garante a integridade referencial entre tabelas, impedindo referências a registros inexistentes.
+
 Triggers: executam automaticamente uma função quando determinados eventos ocorrem, como uma inserção, alteração ou exclusão. São úteis para regras que não podem ser expressas adequadamente por constraints simples.
+
 Stored procedures/functions: permitem colocar operações e lógica diretamente no banco, podendo centralizar determinados comportamentos relacionados aos dados.
+
 Transações e propriedades ACID: permitem que operações relacionadas sejam realizadas de forma confiável. ACID representa Atomicidade, Consistência, Isolamento e Durabilidade, garantindo, por exemplo, que uma operação não seja parcialmente concluída e deixe os dados em um estado inválido.
 
 A principal vantagem de colocar regras de integridade no banco é que elas são aplicadas independentemente da aplicação que está realizando a operação. Assim, se um sistema possui diferentes aplicações acessando o mesmo banco, uma restrição `UNIQUE`, por exemplo, continuará sendo aplicada mesmo que uma das aplicações não faça essa validação corretamente. Outra vantagem é a garantia da consistência dos dados, pois o próprio banco impede que informações que violem as restrições sejam armazenadas, reduzindo o risco de dados inválidos ou inconsistentes.
@@ -51,6 +57,11 @@ Exemplo em PostgreSQL (regra no BD) e exemplo de validação na aplicação
 ## 3. Referências
 
 Fontes consultadas (livros, artigos, documentação oficial do PostgreSQL, materiais do curso).
+IBM. O que são regras de negócios? Disponível em: https://www.ibm.com/br-pt/think/topics/business-rules. Acesso em: 15 ago. 2026.
+
+POSTGRESQL GLOBAL DEVELOPMENT GROUP. 5.5. Constraints. Disponível em: https://www.postgresql.org/docs/current/ddl-constraints.html. Acesso em: 15 ago. 2026.
+
+POSTGRESQL GLOBAL DEVELOPMENT GROUP. Chapter 5. Data Definition. Disponível em: https://www.postgresql.org/docs/current/ddl.html. Acesso em: 15 ago. 2026.
 
 ## 4. Conclusões
 
