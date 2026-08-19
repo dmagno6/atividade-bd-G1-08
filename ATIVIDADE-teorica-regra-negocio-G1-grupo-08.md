@@ -87,7 +87,9 @@ Desse modo, a aplicação é mais apropriada para regras atreladas aos comportam
 | Controle da regra | Deixa regras centralizadas para aplicações diferentes. | Entre aplicações podem haver diferentes regras. | 
 
 ### 1.5 Análise crítica: qual a melhor opção?
-Posição fundamentada do grupo e condições em que cada abordagem se aplica.
+Ao levar em conta que ambas as abordagens possuem seus méritos e vantagens, conclui-se que as regras de negócio não devem ser concentradas em apenas um método, mas sim distribuídas adequadamente. Portanto, uma abordagem híbrida se mostra uma arquitetura mais robusta e confiável para o sistema em questão.
+
+A aplicação age como a primeira linha de defesa, absorvendo os fluxos iniciais dos usuários para si de forma dinâmica e flexível, pois é perfeita para UX e arca com as volatilidades naturais de um negócio de vendas, como descontos e campanhas promocionais. O banco de dados será a última linha de defesa, mantendo a integridade estrutural do sistema por meio de suas restrições, o que garante que os dados armazenados não sejam logicamente impossíveis.
 
 ## 2. Exemplos e Casos
 
@@ -134,7 +136,7 @@ FOWLER, Martin. Presentation Domain Data Layering. Disponível em: https://marti
 
 ## 4. Conclusões
 
-Aprendizados, reflexões e principais pontos observados pelo grupo.
+Conclui-se que o uso de aplicação e de banco de dados em diferentes aspectos de um sistema é uma tarefa flexível para atender diferentes requisitos e possíveis necessidades de um negócio. Percebe-se que as duas abordagens cumprem papeis fundamentais na construção de um sistema de informação robusto e que se deve buscar uma sinergia entre os dois métodos. O nosso resultado mostra que a aplicação é útil para garantir a boa experiência ao usuário e o comportamento adequado perante a ele, enquanto o banco de dados garante a qualidade dos dados armazenados, a fim de moldar informações verdadeiras.
 
 ## Link do Repositório Git
 https://github.com/dmagno6/atividade-bd-G1-08
